@@ -80,6 +80,7 @@ jobs:
       - name: Rodar o TexelProject e capturar telas
         run: bash .github/scripts/screenshots.sh app/TexelProject.AppImage shots
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: texelproject-screenshots
           path: shots/

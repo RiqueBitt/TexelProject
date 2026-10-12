@@ -13,6 +13,7 @@ stroke() { # pincelada: x1 y1 x2 y2
   xdotool mousemove "$1" "$2" mousedown 1; for i in $(seq 1 24); do
     xdotool mousemove $(( $1 + ($3-$1)*i/24 )) $(( $2 + ($4-$2)*i/24 + (i%6)*3 )); sleep 0.03; done; xdotool mouseup 1; }
 "$APP" > "$OUT/app.log" 2>&1 &
+APP_PID=$!
 sleep 30
 W=$(xdotool search --onlyvisible --name "TexelProject" | head -1)
 [ -n "$W" ] && xdotool windowactivate --sync "$W" windowsize "$W" 1600 1000 windowmove "$W" 0 0
@@ -38,5 +39,5 @@ key ctrl+e; shot exportar-texturas 4
 key Escape; sleep 1
 key f11; shot sem-distracoes 3
 key f11
-pkill -f TexelProject; sleep 1
+kill $APP_PID 2>/dev/null; sleep 1
 ls -la "$OUT"
