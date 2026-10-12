@@ -1,0 +1,33 @@
+captura 1: modelo-importado
+captura 2: base-roxa
+captura 3: cobre-metalico
+captura 4: camadas
+captura 5: detalhes-rosa
+captura 6: editor-de-materiais
+captura 7: vista-lateral
+captura 8: vista-de-cima
+captura 9: textura-2d
+captura 10: navegador-de-arquivos
+captura 11: exportar-texturas
+(symbol) No such key name 'f11'. Ignoring it.
+(symbol) No such key name 'f11'. Ignoring it.
+captura 12: sem-distracoes
+(symbol) No such key name 'f11'. Ignoring it.
+(symbol) No such key name 'f11'. Ignoring it.
+total 6940
+drwxr-xr-x 2 runner runner   4096 Oct 12 13:42 .
+drwxr-xr-x 9 runner runner   4096 Oct 12 13:39 ..
+-rw-r--r-- 1 runner runner 566732 Oct 12 13:40 01-modelo-importado.png
+-rw-r--r-- 1 runner runner 587994 Oct 12 13:40 02-base-roxa.png
+-rw-r--r-- 1 runner runner 608987 Oct 12 13:40 03-cobre-metalico.png
+-rw-r--r-- 1 runner runner 619896 Oct 12 13:41 04-camadas.png
+-rw-r--r-- 1 runner runner 624806 Oct 12 13:41 05-detalhes-rosa.png
+-rw-r--r-- 1 runner runner 444645 Oct 12 13:41 06-editor-de-materiais.png
+-rw-r--r-- 1 runner runner 613091 Oct 12 13:41 07-vista-lateral.png
+-rw-r--r-- 1 runner runner 650408 Oct 12 13:41 08-vista-de-cima.png
+-rw-r--r-- 1 runner runner 624790 Oct 12 13:41 09-textura-2d.png
+-rw-r--r-- 1 runner runner 490602 Oct 12 13:42 10-navegador-de-arquivos.png
+-rw-r--r-- 1 runner runner 622194 Oct 12 13:42 11-exportar-texturas.png
+-rw-r--r-- 1 runner runner 622194 Oct 12 13:42 12-sem-distracoes.png
+-rw-r--r-- 1 runner runner      0 Oct 12 13:39 app.log
+-rw-r--r-- 1 runner runner    497 Oct 12 13:42 run.log

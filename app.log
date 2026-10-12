@@ -1,0 +1,3 @@
+XIO:  fatal IO error 2 (No such file or directory) on X server ":99"
+      after 2103 requests (1990 known processed) with 0 events remaining.
+Chosen Vulkan device: llvmpipe (LLVM 15.0.7, 256 bits)
