@@ -67,6 +67,7 @@ jobs:
   screenshots:
     needs: linux
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     permissions:
       contents: write
     steps:
@@ -78,7 +79,7 @@ jobs:
       - name: Dependências para rodar e capturar
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq xvfb xdotool imagemagick mesa-vulkan-drivers libvulkan1 libgtk-3-0 libasound2 libfuse2 fonts-noto-core
+          sudo apt-get install -y -qq xvfb xdotool imagemagick openbox mesa-vulkan-drivers libvulkan1 libgtk-3-0 libasound2 libfuse2 fonts-noto-core
       - name: Rodar o TexelProject e capturar telas
         run: |
           mkdir -p shots
