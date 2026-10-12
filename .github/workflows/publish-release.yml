@@ -1,0 +1,62 @@
+name: Publicar release (TexelProject)
+
+# Publica a release vX.Y.Z usando os pacotes de compilações que já passaram
+# (sem compilar de novo) e as capturas de tela do ramo 'capturas'.
+#   linux_run_id / windows_run_id: IDs das execuções do "Build TexelProject release"
+#   que geraram o pacote de cada sistema (podem ser a mesma).
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versão (ex: 1.0.0) — vira a tag v1.0.0'
+        required: true
+        default: '1.0.0'
+      linux_run_id:
+        description: 'ID da execução com o pacote Linux'
+        required: true
+      windows_run_id:
+        description: 'ID da execução com o pacote Windows'
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: texelproject-linux
+          path: dist/linux
+          run-id: ${{ inputs.linux_run_id }}
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: texelproject-windows
+          path: dist/windows
+          run-id: ${{ inputs.windows_run_id }}
+          github-token: ${{ github.token }}
+      - name: Capturas de tela (ramo capturas)
+        run: |
+          git clone --depth 1 -b capturas "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" shots
+          ls shots/*.png | wc -l
+          ls -la dist/linux dist/windows
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          name: TexelProject ${{ inputs.version }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          fail_on_unmatched_files: true
+          body: |
+            TexelProject ${{ inputs.version }} — pintura de texturas 3D do Project Club (baseado no ArmorPaint, licença zlib).
+            - Windows 10/11 (64 bits): arquivo .zip
+            - Linux (x86_64): TexelProject.AppImage
+            Instale e atualize pela aba **Apps** do Project Club.
+          files: |
+            dist/linux/TexelProject.AppImage
+            dist/windows/*.zip
+            shots/*.png
