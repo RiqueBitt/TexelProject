@@ -147,8 +147,8 @@ key 7; shot vista-de-cima 3
 key 0; sleep 1
 
 # Textura em 2D (o que foi pintado no mapa UV)
-key shift+Tab; shot textura-2d 4
-key shift+Tab; sleep 1
+click 1430 72; sleep 1; shot textura-2d 4
+click 1430 72; sleep 1; wake
 
 # Navegador de arquivos e exportação
 key grave; shot navegador-de-arquivos 3
